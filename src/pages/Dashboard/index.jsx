@@ -27,8 +27,7 @@ const Dashboard = () => {
   */
 
   useEffect(() => {
-    const monthList = filterListByMonth(list, currentMonth);
-    setFilteredList(monthList);
+    setFilteredList(filterListByMonth(list, currentMonth));
   }, [list, currentMonth, setFilteredList]);
 
   /*
@@ -70,7 +69,7 @@ const handleAddItem = (item) => {
   let newList = [...list];
   newList.push(item);
   setList(newList);
-  
+  localStorage.setItem("finances", JSON.stringify(newList));
 };
 
   const handleLogout = (e) => {
@@ -82,6 +81,14 @@ const handleAddItem = (item) => {
   if (!isAuthenticated) {
     navigate("/login");
   }
+
+  useEffect(() => {
+    const savedList = JSON.parse(localStorage.getItem("finances"));
+    if (savedList) {
+      setList(savedList);
+    }
+  }, []);
+
 
   return (
     <div>
