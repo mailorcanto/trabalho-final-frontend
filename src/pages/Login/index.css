@@ -12,7 +12,7 @@ body {
 
 /* Container do formulário de login */
 .login-container {
-  background: #1f1f1f;
+  background: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 20px;
@@ -68,3 +68,4 @@ input[type="password"]:focus {
   color: #ff6347;
   margin-top: 10px;
 }
+
