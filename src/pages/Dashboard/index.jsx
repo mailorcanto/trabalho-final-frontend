@@ -69,6 +69,7 @@ const handleAddItem = (item) => {
   let newList = [...list];
   newList.push(item);
   setList(newList);
+  //salvar dados em localStorage
   localStorage.setItem("finances", JSON.stringify(newList));
 };
 
@@ -82,6 +83,7 @@ const handleAddItem = (item) => {
     navigate("/login");
   }
 
+  //salvar dados em localStorage
   useEffect(() => {
     const savedList = JSON.parse(localStorage.getItem("finances"));
     if (savedList) {
